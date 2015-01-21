@@ -11,7 +11,7 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("schmit.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
@@ -20,16 +20,55 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("schmit.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
+  public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("mustang3.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
   
+  public static void testMirrorHorizontal()
+  {
+     Picture caterpillar = new Picture("schmit.jpg");
+     caterpillar.explore();
+     caterpillar.mirrorHorizontal();
+     caterpillar.explore();
+   }
+  
+  public static void testMirrorHorizontalBotToTop()
+  {
+     Picture caterpillar = new Picture("schmit.jpg");
+     caterpillar.explore();
+     caterpillar.mirrorHorizontalBotToTop();
+     caterpillar.explore();
+   }
+   
+  public static void testMirrorDiagonal()
+  {
+     Picture caterpillar = new Picture("schmit.jpg");
+     caterpillar.explore();
+     caterpillar.mirrorDiaganol();
+     caterpillar.explore();
+   }
+   
+  public static void testCopy()
+  {
+     Picture caterpillar = new Picture("mustang.jpg");
+     Picture car2 = new Picture("mustang2.jpg");
+     caterpillar.explore();
+     caterpillar.cropAndCopy( car2, 230, 540, 290,1055, 0, 0);
+     caterpillar.explore();
+    }
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("schmit.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -38,7 +77,7 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("blank.jpg");
     canvas.createCollage();
     canvas.explore();
   }
@@ -46,7 +85,7 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("schmit.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -69,6 +108,7 @@ public class PictureTester
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
+    testMirrorVerticalRightToLeft();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
