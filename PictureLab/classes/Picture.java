@@ -97,6 +97,43 @@ public class Picture extends SimplePicture
             }
         }
     }
+    
+    public void zeroRed()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setRed(0);
+            }
+        }
+    }
+    
+    public void zeroGreen()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setGreen(0);
+            }
+        }
+    }
+    
+    public void lowBlueHighRed()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setBlue(50);
+                pixelObj.setRed(200);
+            }
+        }
+    }
 
     /** Method that mirrors the picture around a 
      * vertical mirror in the center of the picture
@@ -273,9 +310,28 @@ public class Picture extends SimplePicture
     public void createCollage()
     {
         Picture car1 = new Picture("mustang3.jpg");
+        Picture car2 = new Picture("mustang3.jpg");
+        Picture car3 = new Picture("mustang3.jpg");
+        Picture car4 = new Picture("mustang3.jpg");
+        Picture car5 = new Picture("mustang3.jpg");
+        
+        car2.mirrorVerticalRightToLeft();
+        car2.zeroRed();
+        
+        car3.mirrorDiaganol();
+        car3.zeroBlue();
+        
+        car4.mirrorHorizontal();
+        car4.zeroGreen();
+        
+        car5.mirrorVerticalRightToLeft();
+        car5.lowBlueHighRed();
+        
         this.copy(car1, 184, 312);
-        this.cropAndCopy(car1, 105, 305, 5,395, 0, 0);
-        Picture car2 = car1;
+        this.cropAndCopy(car2, 105, 305, 5,395, 10, 0);
+        this.cropAndCopy(car3, 105, 305, 5,395, 540, 0);
+        this.cropAndCopy(car4, 105, 305, 5,395, 10, 600);
+        this.cropAndCopy(car5, 105, 305, 5,395, 540, 600);
         Picture carNoBlue = new Picture(car1);
         this.write("collage.jpg");
     }
